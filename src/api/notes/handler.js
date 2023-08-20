@@ -2,6 +2,16 @@
 class NotesHandler {
   constructor(service) {
     this._service = service;
+
+    /* fix 'this' error by use 'bind' Function.prototype to bind this to the instance
+       Binding the 'this' context to retain the value of the instance of NotesHandler
+       (this is done because the 'this' keyword is used in the constructor where it still holds
+       the value of the NotesHandler instance). */
+    this.postNoteHandler = this.postNoteHandler.bind(this);
+    this.getNotesHandler = this.getNotesHandler.bind(this);
+    this.getNoteByIdHandler = this.getNoteByIdHandler.bind(this);
+    this.putNoteByIdHandler = this.putNoteByIdHandler.bind(this);
+    this.deleteNoteByIdHandler = this.deleteNoteByIdHandler.bind(this);
   }
 
   postNoteHandler(request, h) {
