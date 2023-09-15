@@ -19,6 +19,7 @@
 guide.txt
 .DS_Store
 *.pem
+src/api/uploads/file
 
 # debug
 npm-debug.log*
